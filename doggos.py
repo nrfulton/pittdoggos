@@ -29,8 +29,8 @@ for line in open("2018_all_unique.csv","r"):
   assert m is not None, line
   
   #Note: license type leaks gender info :)
-  if('Spayed' in m.group(1)): gender = 'm'
-  elif('Neutered' in m.group(1)): gender = 'f'
+  if('Spayed' in m.group(1)): gender = 'f'
+  elif('Neutered' in m.group(1)): gender = 'm'
   else: gender = None
 
   #LicenseType,Breed,Color,DogName,OwnerZip,ExpYear,ValidDate 

@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>Allegheny County Dog Registration Data -- Search By Name</title>
+  <!-- to generate run json_generator.py and then cp the json file to doggo_data.js and prepend var DOGGO_DATA = ... -->
+  <script src="doggo_data.js" type="text/javascript"></script>
+  <script src="doggo_search.js" type="text/javascript"></script>
+</head>
+<body>
+<h1>Find Dogs in Allegheny County who Share Your Dog's Name</j1>
+
+This search tool is for the dataset described <a href="http://nfulton.org/2018/04/12/PittDoggos/">here</a>.
+
+<form>
+Enter your dog's name: <input type="text" id="doggo" name="doggo" >
+<input type="button" onclick="search()" value="Search">
+</form>
+<p id="results">
+Results will show up here.
+</p>
+<script>search();</script>
+</body>
+
