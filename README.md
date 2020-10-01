@@ -10,7 +10,7 @@ And the 2018 dataset are one year registrations:
 
     wget https://data.wprdc.org/dataset/ad5bd3d6-1b53-4ed0-8cd9-157a985bd0bd/resource/53211313-01c9-46e2-b520-a5748a10fd7c/download/2018.csv
 
-My `2018_and_2099.csv` contains all 2018 and lifetime registrations (might be overlap?).
+My `2018_and_2099.csv` contains all 2018 and lifetime registrations (might be overlap).
 Literally just:
 
     cat 2099.csv >> 2018.csv
