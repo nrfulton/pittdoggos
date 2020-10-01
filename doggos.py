@@ -19,10 +19,10 @@ data = []
 #Dog Senior Citizen or Disability Female,POMERANIAN,WHITE/BLACK/BROWN,TAJ'aa,15132,2018,11/27/2017 15:37
 #more names for regexp grouble: katy "smoosh", LILY=LULU 
 #note: throws away times on expiration year. whatever.
-line_pattern = re.compile("([a-zA-Z\ \-]*),([a-zA-Z\-\ \/\.&\(\)]*),([a-zA-Z\-\ \/\.]*),([=a-zA-Z0-9`\-\ &\.\(\){\"\"}\'\/]*),([\d\-]*),([\d\/]*),([^\s]*)")
+line_pattern = re.compile("([a-zA-Z\ \-]*),([a-zA-Z\-\ \/\.&\(\)]*),([a-zA-Z\-\ \/\.]*),([\w\s.,\/#!$%\?\^\+&\*;:{}=\-_`'\"~()]*),([\d\-]*),([\d\/]*),([^\s]*)")
 
 ln = 0 #line counter for skipping the first line. hack
-for line in open("2018_all_unique.csv","r"):
+for line in open("2020_all_unique.csv","r"):
   ln += 1
   if(ln==1): continue
   m = line_pattern.match(line)
@@ -53,7 +53,7 @@ for line in open("2018_all_unique.csv","r"):
 sterileCount = 0
 for doggo in data:
   if doggo['sterile']: sterileCount += 1
-print "%d/%d doggos are spayed or neutered (%f pcnt)" % (sterileCount, len(data), 100*(1.0*sterileCount)/len(data))
+print ("%d/%d doggos are spayed or neutered (%f pcnt)" % (sterileCount, len(data), 100*(1.0*sterileCount)/len(data)))
 
 ####################
 # Gender
@@ -66,7 +66,7 @@ for doggo in data:
   if(doggo["gender"] == 'm'): male += 1
   elif(doggo["gender"] == 'f'): female += 1
   else: idk += 1
-print male, female, idk
+print (male, female, idk)
 
 ###########################
 #### most popular names:
@@ -78,8 +78,8 @@ for doggo in data:
     names[doggo["name"]] += 1
   else:
     names.update({doggo["name"]: 1})
-for key, value in sorted(names.iteritems(), key=lambda (k,v): (v,k)):
-  print key, value
+for key, value in sorted(names.items(), key=lambda kv: kv[1], reverse=True):
+  print (key, value)
 
 ###########################
 #### most popular breeds:
@@ -91,6 +91,5 @@ for doggo in data:
     breeds[doggo["breed"]] += 1
   else:
     breeds.update({doggo["breed"]: 1})
-for key, value in sorted(breeds.iteritems(), key=lambda (k,v): (v,k)):
-  print key, value
-
+for key, value in sorted(breeds.items(), key=lambda kv: kv[1], reverse=True):
+  print (key, value)
