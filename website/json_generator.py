@@ -20,10 +20,10 @@ data = []
 #Dog Senior Citizen or Disability Female,POMERANIAN,WHITE/BLACK/BROWN,TAJ'aa,15132,2018,11/27/2017 15:37
 #more names for regexp grouble: katy "smoosh", LILY=LULU 
 #note: throws away times on expiration year. whatever.
-line_pattern = re.compile("([a-zA-Z\ \-]*),([a-zA-Z\-\ \/\.&\(\)]*),([a-zA-Z\-\ \/\.]*),([=a-zA-Z0-9`\-\ &\.\(\){\"\"}\'\/]*),([\d\-]*),([\d\/]*),([^\s]*)")
+line_pattern = re.compile("([a-zA-Z\ \-]*),([a-zA-Z\-\ \/\.&\(\)]*),([a-zA-Z\-\ \/\.]*),([\w\s.,\/#!$%\?\^\+&\*;:{}=\-_`'\"~()]*),([\d\-]*),([\d\/]*),([^\s]*)")
 
 ln = 0 #line counter for skipping the first line. hack
-for line in open("../2018_all_unique.csv","r"):
+for line in open("../2020_all_unique.csv","r"):
   ln += 1
   if(ln==1): continue
   m = line_pattern.match(line)
