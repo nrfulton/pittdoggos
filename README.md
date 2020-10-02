@@ -2,7 +2,7 @@
 
 [Original datasets are here](https://catalog.data.gov/dataset/allegheny-county-dog-licenses/resource/c189c9ad-7f20-4686-ae22-b534af7ad092)
 
-The 2099 dataset are lifetime regirations:
+The 2099 dataset are lifetime registrations:
 
     wget https://data.wprdc.org/datastore/dump/f8ab32f7-44c7-43ca-98bf-c1b444724598
 
@@ -17,4 +17,4 @@ Literally just appending to 2020 data:
 
 The `2018_all_unique.csv` file is just the unique lines from those two files using `unqiue.py`.
 
-`doggos.py` does the data munging that gives the tables in the blog post.
+`doggos.py` does the data merging that gives the tables in the blog post.
